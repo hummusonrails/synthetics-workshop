@@ -16,7 +16,11 @@ const {Builder, By, until} = require('selenium-webdriver');
           await driver.wait(until.elementLocated(By.tagName('a')), 30000);
           links = await driver.findElements(By.tagName('a'));
           link = await links[i].getAttribute('href')
-          await driver.get(link);
+          await driver.get(link).then(() => {
+            console.log(`This page is alive: ${link}`)
+          }).catch((e) => {
+              console.log(`There was an error: ${e.name}`)
+          });
         }
     }
     finally {
