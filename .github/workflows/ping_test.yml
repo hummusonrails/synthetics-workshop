@@ -13,4 +13,7 @@ jobs:
       with:
         node-version: '17'
         cache: 'npm'
-    - run: 'node ./examples/ping_test_headless.js'
+    - name: Install packages
+      run: npm install
+    - name: Run script
+      run: 'node ./examples/ping_test_headless.js'

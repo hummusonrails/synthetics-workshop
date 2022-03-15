@@ -3,6 +3,7 @@
 const {Builder, By, Key, until} = require('selenium-webdriver');
 
 (async function pingTest() {
+  let chrome = require('selenium-webdriver/chrome')
   let driver = await new Builder()
     .forBrowser('chrome')
     .setChromeOptions(new chrome.Options().addArguments('--headless'))
